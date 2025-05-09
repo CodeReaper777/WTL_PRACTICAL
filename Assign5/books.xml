@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="books.xsl"?>
+<books>
+  <book>
+    <title>Learning XML</title>
+    <author>John Doe</author>
+  </book>
+  <book>
+    <title>Mastering Java</title>
+    <author>Jane Smith</author>
+  </book>
+</books>

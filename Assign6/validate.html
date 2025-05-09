@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration Form</title>
+    <style>
+        .form-container {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #f5f5f5;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .form-field {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+        .status-message {
+            color: #d9534f;
+            margin-bottom: 15px;
+            min-height: 20px;
+        }
+        .success-message {
+            color: #5cb85c;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <form action="" onsubmit="validateRegistration(event)">
+            <p id="statusDisplay" class="status-message"></p>
+            <input type="text" name="firstName" id="firstName" class="form-field" placeholder="First name">
+            <br>
+            <input type="text" name="lastName" id="lastName" class="form-field" placeholder="Last name">
+            <br>
+            <input type="text" name="phoneNumber" id="phoneNumber" class="form-field" placeholder="Phone number">
+            <br>
+            <input type="text" name="userEmail" id="userEmail" class="form-field" placeholder="Email address">
+            <br>
+            <input type="password" name="userPassword" id="userPassword" class="form-field" placeholder="Password">
+            <br>
+            <input type="submit" value="Register" class="submit-btn">
+        </form>
+    </div>
+
+    <script>
+        function validateRegistration(event) {
+            event.preventDefault();
+            const firstNameInput = document.getElementById("firstName").value;
+            const lastNameInput = document.getElementById("lastName").value;
+            const phoneInput = document.getElementById("phoneNumber").value;
+            const emailInput = document.getElementById("userEmail").value;
+            const passwordInput = document.getElementById("userPassword").value;
+            const statusOutput = document.getElementById('statusDisplay');
+            
+            if(!firstNameInput || !lastNameInput || !phoneInput || !emailInput || !passwordInput) {
+                showStatusMessage("All fields are required", statusOutput);
+            }
+            else if(!/^[a-zA-Z]+$/.test(firstNameInput) || !/^[a-zA-Z]+$/.test(lastNameInput)) {
+                showStatusMessage("Names should only contain letters", statusOutput);
+            }
+            else if(!/^\d{10}$/.test(phoneInput)) {
+                showStatusMessage("Phone number must be 10 digits", statusOutput);
+            }
+            else if(!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(emailInput)) {
+                showStatusMessage("Please enter a valid email address", statusOutput);
+            }
+            else if(!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]).{8,}$/.test(passwordInput)) {
+                showStatusMessage("Password must be 8+ characters with uppercase, lowercase, number, and special character", statusOutput);
+            }
+            else {
+                showStatusMessage("Registration successful!", statusOutput, true);
+                // Here you would typically submit the form to a server
+            }
+        }
+
+        function showStatusMessage(text, element, isSuccess = false) {
+            element.innerText = text;
+            if(isSuccess) {
+                element.classList.add('success-message');
+                element.classList.remove('status-message');
+            } else {
+                element.classList.add('status-message');
+                element.classList.remove('success-message');
+            }
+            setTimeout(() => {
+                element.innerText = '';
+                element.className = 'status-message';
+            }, 4000);
+        }
+    </script>
+</body>
+</html>

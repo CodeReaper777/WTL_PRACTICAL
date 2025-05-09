@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Button Frame</title>
+</head>
+<body>
+    <button onclick="loadContent()">Load Page</button>
+
+    <script>
+        function loadContent() {
+            parent.frames['frame2'].location.href = '../assignment1/porfolio.html';
+        }
+    </script>
+</body>
+</html>

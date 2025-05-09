@@ -1,0 +1,12 @@
+<?xml-stylesheet type="text/css" href="style.css"?>
+
+<books>
+    <book>
+        <title>Learning XML</title>
+        <author>John Doe</author>
+    </book>
+    <book>
+        <title>Mastering CSS</title>
+        <author>Jane Smith</author>
+    </book>
+</books>

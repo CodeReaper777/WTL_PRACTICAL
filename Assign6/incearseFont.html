@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Increasing Font Size</title>
+    <style>
+        #textDisplay {
+            color: red;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div id="textDisplay"></div>
+
+    <script>
+        const displayElement = document.getElementById('textDisplay');
+        let currentSize = 10;
+        const textContent = "next";
+        const incrementInterval = 100; 
+        const maxSize = 100; 
+
+        function enlargeText() {
+            if (currentSize <= maxSize) {
+                displayElement.textContent = textContent;
+                displayElement.style.fontSize = currentSize + 'px';
+                currentSize += 2; 
+                setTimeout(enlargeText, incrementInterval);
+            }
+        }
+        enlargeText();
+    </script>
+</body>
+</html>

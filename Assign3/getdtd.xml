@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE HOSPITAL SYSTEM "dtdexample.dtd">
+<?xml-stylesheet type="text/css" href="hos.css"?>
+<HOSPITAL>
+<OPD>1 Sami Bhadgaonkar</OPD>
+<DOC>Hulk</DOC>
+<PATIENTS>Carlret Jhonson</PATIENTS>
+</HOSPITAL>
